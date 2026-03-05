@@ -894,46 +894,56 @@ ul {
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 18px 0;
-        /* More top/bottom space for Android status bars */
+        padding: 20px 0;
         background-color: var(--dark-bg);
-        min-height: auto;
+        min-height: 105px;
+        /* Guaranteed height */
+        display: flex;
+        align-items: center;
+        overflow: visible !important;
     }
 
     .navbar.scrolled {
-        padding: 14px 0;
+        padding: 12px 0;
+        min-height: 75px;
         background-color: rgba(255, 255, 255, 0.98);
+        overflow: visible !important;
     }
 
     .nav-logo {
-        height: 50px;
-        /* Specific height for the square favicon-logo */
-        width: 50px;
+        height: 60px;
+        /* Increased from 50px */
+        width: 60px;
         /* Force square aspect */
         object-fit: contain;
         flex-shrink: 0;
+        display: block;
     }
 
     .navbar.scrolled .nav-logo {
-        height: 40px;
-        width: 40px;
+        height: 48px;
+        /* Increased from 40px */
+        width: 48px;
     }
 
     .brand-title {
         font-size: 1.4rem;
         letter-spacing: 1px;
         margin: 0;
+        line-height: 1.1;
+        display: block;
     }
 
     .navbar.scrolled .brand-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .brand-subtitle {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
         letter-spacing: 1px;
-        line-height: 1.2;
-        margin: 0;
+        line-height: 1;
+        margin: 4px 0 0 0;
+        display: block;
     }
 
     .navbar.scrolled .brand-subtitle {
