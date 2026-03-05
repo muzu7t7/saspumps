@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Shaduf Al Sahra Trading</title>
+    <meta name="description"
+        content="Join our team at Shaduf Al Sahra Trading. Explore career opportunities in water and energy solutions.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 180px 0 80px 0;
+            background-color: var(--dark-bg);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .job-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-color);
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .job-meta i {
+            color: var(--accent-color);
+        }
+
+        .job-desc {
+            margin-bottom: 25px;
+            font-size: 1rem;
+            color: var(--text-main);
+            flex-grow: 1;
+        }
+
+        .job-card .btn-primary-sm {
+            align-self: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html" class="brand-link">
+                    <img src="assets/logo.png" alt="Shaduf Al Sahra Trading Logo" class="nav-logo">
+                    <div class="brand-text">
+                        <span class="brand-title">SAS PUMPS</span>
+                        <span class="brand-subtitle">SHADUF AL SAHRA TRADING</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="index.html#why-us">Why Us</a></li>
+                <li><a href="index.html#applications">Applications</a></li>
+                <li><a href="careers.html" class="highlight">Careers</a></li>
+                <li><a href="index.html#contact" class="btn-primary-sm">Contact Us</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container fade-in-up">
+            <h1 class="section-title">Join Our <span class="highlight">Team</span></h1>
+            <div class="title-underline center"></div>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; color: #E2E8F0;">
+                Discover exciting career opportunities with Shaduf Al Sahra Trading and help us innovate water & energy
+                solutions.
+            </p>
+        </div>
+    </header>
+
+    <!-- Careers Section -->
+    <section class="section-padding bg-light" style="min-height: 50vh;">
+        <div class="container">
+            <div id="jobs-container" class="jobs-grid">
+                <!-- Jobs will be generated here by careers.js -->
+            </div>
+            <div id="no-jobs-msg" style="display: none; text-align: center; padding: 60px 20px;">
+                <i class="fas fa-briefcase" style="font-size: 3rem; color: #cbd5e1; margin-bottom: 20px;"></i>
+                <h3 style="color: var(--text-muted); font-size: 1.5rem; margin-bottom: 10px;">No Current Openings</h3>
+                <p style="color: var(--text-muted);">There are currently no open positions. Please check back later or
+                    send your resume to our email: <a href="mailto:info@saspumps.com"
+                        style="color: var(--primary-blue); font-weight: 500;">info@saspumps.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand fade-in-up">
+                    <a href="index.html" class="brand-link" style="margin-bottom: 20px;">
+                        <img src="assets/logo.png" alt="Shaduf Al Sahra Trading Logo" class="footer-logo">
+                        <div class="brand-text">
+                            <span class="brand-title" style="color: var(--white);">SAS PUMPS</span>
+                            <span class="brand-subtitle" style="color: #cbd5e1;">SHADUF AL SAHRA TRADING</span>
+                        </div>
+                    </a>
+                    <p>Delivering high-quality, durable, energy-efficient, and environmentally sustainable systems
+                        globally.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-contact fade-in-up delay-1">
+                    <h3>Get In Touch</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-phone-alt"></i> +971 58 167 0324</li>
+                        <li><i class="fas fa-envelope"></i> info@saspumps.com</li>
+                        <li><i class="fas fa-globe"></i> www.saspumps.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Dubai, United Arab Emirates</li>
+                    </ul>
+                </div>
+
+                <div class="footer-form fade-in-up delay-2">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm" action="https://formspree.io/f/mkovddkq" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-100">Send</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shaduf Al Sahra Trading. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="careers.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
