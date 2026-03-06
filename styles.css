@@ -35,6 +35,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -1034,7 +1035,8 @@ ul {
     .mobile-menu-btn {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
+        /* Push to absolute right edge */
         height: 48px;
         width: 48px;
         /* Match logo width for perfect flex balancing */
