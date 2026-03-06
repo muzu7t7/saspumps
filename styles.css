@@ -179,7 +179,8 @@ ul {
     position: fixed;
     top: 20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);
+    /* Add translateZ(0) */
     width: 90%;
     max-width: 1200px;
     z-index: 1000;
@@ -192,6 +193,11 @@ ul {
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 100px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    /* Hardware acceleration to fix mobile rendering bugs on load */
+    will-change: transform, backdrop-filter;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .navbar.scrolled {
@@ -944,23 +950,31 @@ ul {
     }
 
     .brand-title {
-        font-size: 1.35rem;
-        /* Slightly larger, single line */
+        font-size: 1.15rem;
+        /* Slightly smaller to fit both lines */
         letter-spacing: 1px;
         margin: 0;
         line-height: normal;
-        /* Force color white before scroll on mobile since we have a dark nav background */
         color: var(--white) !important;
     }
 
     .navbar.scrolled .brand-title {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         color: var(--primary-blue) !important;
     }
 
-    /* Hide the subtitle on mobile to perfect the vertical centering of the pill */
+    /* Restoring subtitle on mobile */
     .brand-subtitle {
-        display: none !important;
+        display: block !important;
+        font-size: 0.55rem;
+        letter-spacing: 1px;
+        line-height: 1;
+        margin: 2px 0 0 0;
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .navbar.scrolled .brand-subtitle {
+        color: var(--text-muted) !important;
     }
 
     .nav-links {
