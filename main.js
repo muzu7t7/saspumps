@@ -2,12 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Navigation Scroll Effect
     const navbar = document.getElementById('navbar');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
+            if (scrollIndicator) scrollIndicator.classList.add('hidden');
         } else {
             navbar.classList.remove('scrolled');
+            if (scrollIndicator) scrollIndicator.classList.remove('hidden');
         }
     });
 

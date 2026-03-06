@@ -229,12 +229,12 @@ ul {
 }
 
 .nav-logo {
-    height: 48px;
-    width: 48px;
+    height: 65px;
+    width: 65px;
     object-fit: contain;
     transition: var(--transition);
     background-color: var(--white);
-    padding: 6px;
+    padding: 7px;
     border-radius: 50%;
     /* Circle logo container */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -243,8 +243,8 @@ ul {
 .navbar.scrolled .nav-logo {
     background-color: transparent;
     padding: 0;
-    height: 42px;
-    width: 42px;
+    height: 55px;
+    width: 55px;
     box-shadow: none;
     border-radius: 0;
 }
@@ -265,7 +265,7 @@ ul {
 
 .brand-title {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     font-weight: 700;
     color: var(--white);
     letter-spacing: 2px;
@@ -384,10 +384,16 @@ ul {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 40px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.scroll-indicator.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .mouse {
@@ -753,13 +759,21 @@ ul {
 }
 
 .footer-logo {
-    height: 150px;
-    /* Increased from 70px */
-    width: auto;
-    margin-bottom: 20px;
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    margin-bottom: 0;
+    /* Remove so it sits vertically with the text */
     background-color: rgba(255, 255, 255, 0.95);
-    padding: 15px 20px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer brand link spacing */
+.footer-brand .brand-link {
+    margin-bottom: 20px;
+    align-items: center;
 }
 
 .footer-brand p {
@@ -797,15 +811,31 @@ ul {
 
 .contact-list li {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     color: #cbd5e1;
 }
 
 .contact-list i {
-    margin-top: 5px;
-    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    /* prevents it from shrinking */
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: var(--white);
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    transition: var(--transition);
+}
+
+.contact-list li:hover i {
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5);
 }
 
 .form-group {
