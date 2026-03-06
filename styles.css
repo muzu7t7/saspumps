@@ -887,10 +887,10 @@ ul {
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 22px 0;
-        /* Padding creates consistent tall header */
+        padding: max(22px, env(safe-area-inset-top, 22px)) 0 22px 0;
         background-color: var(--dark-bg);
         overflow: visible !important;
+        box-sizing: border-box;
     }
 
     .navbar.scrolled {
@@ -911,6 +911,7 @@ ul {
         /* White pill for visibility */
         padding: 5px;
         border-radius: 8px;
+        box-sizing: border-box;
     }
 
     .navbar.scrolled .nav-logo {
