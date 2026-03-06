@@ -907,12 +907,18 @@ ul {
         object-fit: contain;
         flex-shrink: 0;
         display: block;
+        background-color: rgba(255, 255, 255, 0.95);
+        /* White pill for visibility */
+        padding: 5px;
+        border-radius: 8px;
     }
 
     .navbar.scrolled .nav-logo {
         height: 48px;
         /* Increased from 40px */
         width: 48px;
+        background-color: transparent;
+        padding: 0;
     }
 
     .brand-title {
