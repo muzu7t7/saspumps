@@ -894,18 +894,14 @@ ul {
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 20px 0;
+        padding: 22px 0;
+        /* Padding creates consistent tall header */
         background-color: var(--dark-bg);
-        min-height: 105px;
-        /* Guaranteed height */
-        display: flex;
-        align-items: center;
         overflow: visible !important;
     }
 
     .navbar.scrolled {
         padding: 12px 0;
-        min-height: 75px;
         background-color: rgba(255, 255, 255, 0.98);
         overflow: visible !important;
     }
