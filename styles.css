@@ -213,18 +213,11 @@ ul {
 
 .nav-logo {
     height: 120px;
-    /* Increased from 50px */
     width: auto;
     transition: var(--transition);
-    /* Adding a subtle white pill background so the dark text is visible over the hero */
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 8px 15px;
-    border-radius: 8px;
 }
 
 .navbar.scrolled .nav-logo {
-    background-color: transparent;
-    padding: 0;
     max-height: 100%;
 }
 
