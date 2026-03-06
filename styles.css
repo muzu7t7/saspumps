@@ -402,6 +402,11 @@ ul {
     justify-content: center;
 }
 
+/* Shift Explore Products button left so the scroll icon sits visually central */
+.hero-btns a:first-child {
+    margin-left: -30px;
+}
+
 .scroll-indicator {
     position: absolute;
     bottom: 25px;
@@ -1113,6 +1118,17 @@ ul {
 
     .hero h1 {
         font-size: 2.5rem;
+    }
+
+    /* Reduce gap between floating pill navbar and hero text on mobile */
+    .hero-content {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .footer-grid {
