@@ -19,8 +19,10 @@
     --text-muted: #64748B;
 
     /* Typography */
-    --font-heading: 'Outfit', sans-serif;
+    --font-heading: 'Barlow Condensed', sans-serif;
     --font-body: 'Inter', sans-serif;
+    --font-brand-secondary: 'Outfit', sans-serif;
+    /* Keep Outfit for section headings */
 
     /* Layout */
     --container-width: 1200px;
@@ -42,6 +44,9 @@ body {
     font-family: var(--font-body);
     color: var(--text-main);
     background-color: var(--white);
+    /* Subtle dot grid pattern */
+    background-image: radial-gradient(circle, rgba(14, 75, 117, 0.15) 1px, transparent 1px);
+    background-size: 28px 28px;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -264,11 +269,11 @@ ul {
 }
 
 .brand-title {
-    font-family: var(--font-heading);
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 2.0rem;
     font-weight: 700;
     color: var(--white);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     line-height: 1;
     text-transform: uppercase;
     transition: var(--transition);
@@ -357,6 +362,20 @@ ul {
     z-index: 1;
 }
 
+/* Blueprint grid overlay on hero */
+.hero-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -380,6 +399,7 @@ ul {
 .hero-btns {
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 
 .scroll-indicator {
