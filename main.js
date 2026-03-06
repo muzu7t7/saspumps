@@ -23,16 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navLinks.classList.contains('active')) {
             icon.classList.remove('fa-bars');
             icon.classList.add('fa-times');
-            icon.style.color = '#334155'; // Dark color when open
         } else {
             icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
-            // reset color logic based on scroll
-            if (window.scrollY > 50) {
-                icon.style.color = 'var(--primary-blue)';
-            } else {
-                icon.style.color = 'var(--white)';
-            }
         }
     });
 

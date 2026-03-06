@@ -177,23 +177,29 @@ ul {
 ========================================= */
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
     z-index: 1000;
-    padding: 20px 0;
+    padding: 12px 25px;
     transition: var(--transition);
-    background-color: transparent;
-    border-bottom: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.03);
+    /* Extremely subtle frosted glass */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 100px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 15px 0;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    top: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 10px 25px;
 }
 
 .navbar.scrolled .logo a {
@@ -215,20 +221,24 @@ ul {
 }
 
 .nav-logo {
-    height: 50px;
-    width: 50px;
+    height: 48px;
+    width: 48px;
     object-fit: contain;
     transition: var(--transition);
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 4px;
-    border-radius: 8px;
+    background-color: var(--white);
+    padding: 6px;
+    border-radius: 50%;
+    /* Circle logo container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.scrolled .nav-logo {
     background-color: transparent;
     padding: 0;
-    height: 45px;
-    width: 45px;
+    height: 42px;
+    width: 42px;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 /* Brand Typography Layout */
@@ -897,36 +907,45 @@ ul {
 
 @media (max-width: 768px) {
     .navbar {
-        padding: max(15px, env(safe-area-inset-top, 15px)) 0 15px 0;
-        background-color: rgba(15, 23, 42, 0.85);
-        /* Premium dark glass */
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        top: max(15px, env(safe-area-inset-top, 15px));
+        /* Float under the notch safely */
+        width: 92%;
+        padding: 8px 18px;
+        background-color: rgba(15, 23, 42, 0.65);
+        /* Elegant dark glass */
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50px;
+        /* Pill shape */
         box-sizing: border-box;
     }
 
     .navbar.scrolled {
-        padding: 12px 0;
+        top: 10px;
+        padding: 6px 15px;
         background-color: rgba(255, 255, 255, 0.95);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .nav-logo {
-        height: 45px;
-        width: 45px;
-        background-color: transparent;
-        /* No need for pill, dark glass is behind it */
-        padding: 0;
+        height: 48px;
+        width: 48px;
+        padding: 6px;
+        background-color: var(--white);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     .navbar.scrolled .nav-logo {
-        height: 40px;
-        width: 40px;
+        height: 42px;
+        width: 42px;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
     }
 
     .brand-title {
-        font-size: 1.3rem;
+        font-size: 1.35rem;
+        /* Slightly larger, single line */
         letter-spacing: 1px;
         margin: 0;
         line-height: normal;
@@ -935,44 +954,71 @@ ul {
     }
 
     .navbar.scrolled .brand-title {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         color: var(--primary-blue) !important;
     }
 
-    /* Hide the subtitle on mobile for a clean, single-line look */
+    /* Hide the subtitle on mobile to perfect the vertical centering of the pill */
     .brand-subtitle {
         display: none !important;
     }
 
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background: var(--white);
+        position: absolute;
+        top: calc(100% + 15px);
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
         flex-direction: column;
         justify-content: center;
-        transition: var(--transition);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
+        padding: 24px 0;
+        gap: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        z-index: 999;
+    }
+
+    .navbar.scrolled .nav-links {
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .nav-links.active {
-        right: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        right: auto;
     }
 
     .nav-links a {
+        color: var(--white);
+        font-size: 1.15rem;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .navbar.scrolled .nav-links a {
         color: var(--text-main);
-        font-size: 1.2rem;
     }
 
     .nav-links a.btn-primary-sm {
         color: var(--white);
+        width: max-content;
+        margin: 5px auto 0 auto;
+        padding: 10px 25px;
     }
 
     .mobile-menu-btn {
         display: block;
+        color: var(--white);
     }
 
     .navbar.scrolled .mobile-menu-btn {
