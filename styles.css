@@ -398,7 +398,7 @@ ul {
 
 .hero-btns {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     justify-content: center;
 }
 
