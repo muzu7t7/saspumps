@@ -595,6 +595,35 @@ ul {
     position: relative;
 }
 
+/* Two-column wrapper: cards left, image right */
+.why-layout {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.why-cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.why-image {
+    flex: 0 0 420px;
+    max-width: 420px;
+}
+
+.why-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .why-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -985,9 +1014,8 @@ ul {
     .navbar.scrolled {
         top: 10px;
         padding: 6px 15px;
-        background-color: rgba(10, 30, 60, 0.92);
-        /* Dark navy glass */
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        background-color: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .nav-logo {
@@ -1009,7 +1037,6 @@ ul {
 
     .brand-title {
         font-size: 1.15rem;
-        /* Slightly smaller to fit both lines */
         letter-spacing: 1px;
         margin: 0;
         line-height: normal;
@@ -1058,9 +1085,8 @@ ul {
     }
 
     .navbar.scrolled .nav-links {
-        background: rgba(10, 30, 60, 0.97);
-        /* Dark navy dropdown */
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .nav-links.active {
@@ -1079,8 +1105,7 @@ ul {
     }
 
     .navbar.scrolled .nav-links a {
-        color: rgba(255, 255, 255, 0.9);
-        /* Keep links white on dark navy */
+        color: var(--text-main);
     }
 
     .nav-links a.btn-primary-sm {
@@ -1117,7 +1142,7 @@ ul {
     }
 
     .navbar.scrolled .mobile-menu-btn {
-        color: var(--primary-blue);
+        color: var(--primary-blue) !important;
     }
 
     .hero h1 {
@@ -1147,5 +1172,24 @@ ul {
 
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Stack Why Shaduf layout vertically on mobile */
+    .why-layout {
+        flex-direction: column;
+    }
+
+    .why-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .why-image {
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .why-image img {
+        height: 260px;
     }
 }
