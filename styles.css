@@ -1081,7 +1081,8 @@ ul {
     }
 
     .nav-links a.btn-primary-sm {
-        color: var(--white);
+        color: var(--white) !important;
+        /* Always white — dark blue background needs white text */
         width: max-content;
         margin: 5px auto 0 auto;
         padding: 10px 25px;
@@ -1134,6 +1135,11 @@ ul {
     /* Hide scroll icon on mobile — it clips at viewport edge */
     .scroll-indicator {
         display: none;
+    }
+
+    /* Re-center hero buttons on mobile now that scroll indicator is hidden */
+    .hero-btns a:first-child {
+        margin-left: 0;
     }
 
     .footer-grid {
