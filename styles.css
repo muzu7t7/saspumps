@@ -985,8 +985,9 @@ ul {
     .navbar.scrolled {
         top: 10px;
         padding: 6px 15px;
-        background-color: rgba(255, 255, 255, 0.95);
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        background-color: rgba(10, 30, 60, 0.92);
+        /* Dark navy glass */
+        border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .nav-logo {
@@ -1057,8 +1058,9 @@ ul {
     }
 
     .navbar.scrolled .nav-links {
-        background: rgba(255, 255, 255, 0.98);
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        background: rgba(10, 30, 60, 0.97);
+        /* Dark navy dropdown */
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-links.active {
@@ -1077,7 +1079,8 @@ ul {
     }
 
     .navbar.scrolled .nav-links a {
-        color: var(--text-main);
+        color: rgba(255, 255, 255, 0.9);
+        /* Keep links white on dark navy */
     }
 
     .nav-links a.btn-primary-sm {
