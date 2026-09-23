@@ -11,7 +11,7 @@
     --water-soft: light-dark(#e3f5fa, rgb(79 209 238 / .12));
     --sun: light-dark(#c87a06, #f7b440);
     --sun-soft: light-dark(#fdf1dc, rgb(247 180 64 / .12));
-    --green: light-dark(#138a5c, #4ade9b);
+    --green: light-dark(#0f7a51, #4ade9b);
     --green-soft: light-dark(#e2f5ec, rgb(74 222 155 / .12));
 
     --bg: light-dark(#f7f8fb, #08101f);
@@ -142,7 +142,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
     font-stretch: 85%;
     letter-spacing: .16em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green);
 }
 .eyebrow::before {
     content: '';
@@ -150,7 +150,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
     border-radius: 2px;
     background: currentColor;
 }
-.eyebrow--on-dark { color: #4fd1ee; }
+.eyebrow--on-dark { color: #4ade9b; }
 
 .h2 {
     font-size: clamp(2rem, 1.3rem + 3vw, 3.4rem);
@@ -159,7 +159,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 }
 
 .accent {
-    background: linear-gradient(100deg, var(--primary) 0%, var(--water) 90%);
+    background: linear-gradient(100deg, var(--primary) 0%, var(--water) 55%, var(--green) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -674,7 +674,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
         radial-gradient(35% 45% at 100% 100%, rgb(79 209 238 / .16), transparent 70%);
 }
 .why h2, .why h3 { color: #fff; }
-.why .accent { background-image: linear-gradient(100deg, #8aaaf0, #4fd1ee); }
+.why .accent { background-image: linear-gradient(100deg, #8aaaf0, #4fd1ee 55%, #4ade9b); }
 
 .features {
     display: grid;
@@ -865,7 +865,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
     background: radial-gradient(circle, rgb(79 209 238 / .35), transparent 70%);
 }
 .contact-info .h2 { color: #fff; }
-.contact-info .accent { background-image: linear-gradient(100deg, #8aaaf0, #4fd1ee); }
+.contact-info .accent { background-image: linear-gradient(100deg, #8aaaf0, #4fd1ee 55%, #4ade9b); }
 
 .contact-list { display: grid; gap: 12px; margin-top: 36px; }
 .contact-list li > a,
