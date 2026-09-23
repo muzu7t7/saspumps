@@ -126,6 +126,8 @@ p { text-wrap: pretty; }
 }
 
 .section { padding-block: clamp(72px, 10vw, 128px); }
+/* The footer has its own top padding and border, so the last section needs less below it */
+main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 
 /* =========================================================
    Typography helpers
@@ -832,6 +834,10 @@ p { text-wrap: pretty; }
 /* =========================================================
    Contact
 ========================================================= */
+/* Areas, FAQ and contact share a background, so don't stack both sections' padding */
+.areas + .faq,
+.faq + .contact { padding-top: 0; }
+
 .contact-card {
     display: grid;
     grid-template-columns: .9fr 1.1fr;
