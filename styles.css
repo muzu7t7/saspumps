@@ -97,6 +97,8 @@ p { text-wrap: pretty; }
     stroke-linejoin: round;
 }
 
+.i-brand { fill: currentColor; stroke: none; }
+
 .visually-hidden {
     position: absolute !important;
     width: 1px; height: 1px;
@@ -949,7 +951,7 @@ p { text-wrap: pretty; }
     color: var(--text-muted);
     transition: background-color .25s, color .25s, border-color .25s, transform .25s var(--ease);
 }
-.social-links .i-brand { width: 18px; height: 18px; fill: currentColor; stroke: none; }
+.social-links .i-brand { width: 18px; height: 18px; }
 .site-footer .social-links a[href]:hover {
     background: var(--primary);
     border-color: var(--primary);
