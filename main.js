@@ -35,10 +35,27 @@
         });
     });
 
-    // 4. Current year in footer
+    // 4. Social media links: paste each profile URL between the quotes.
+    //    Icons without a URL stay visible but aren't clickable.
+    const socialLinks = {
+        linkedin: '',
+        instagram: '',
+        facebook: '',
+        x: '',
+        whatsapp: 'https://wa.me/971581670324'
+    };
+    document.querySelectorAll('[data-social]').forEach((link) => {
+        const url = socialLinks[link.dataset.social];
+        if (!url) return;
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+    });
+
+    // 5. Current year in footer
     document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
-    // 5. Contact form: submit to Formspree without leaving the page
+    // 6. Contact form: submit to Formspree without leaving the page
     const form = document.getElementById('contactForm');
     if (!form) return;
 

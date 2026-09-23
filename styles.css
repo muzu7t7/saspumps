@@ -21,6 +21,7 @@
     --text-muted: light-dark(#4f5d75, #9aa8bf);
     --heading: light-dark(#0b1733, #ffffff);
     --line: light-dark(rgb(15 26 46 / .09), rgb(255 255 255 / .09));
+    --line-strong: light-dark(rgb(15 26 46 / .14), rgb(255 255 255 / .14));
     --primary: light-dark(#274382, #6d93e6);
     --primary-ink: light-dark(#ffffff, #08101f);
     --accent: light-dark(#0a8fb3, #4fd1ee);
@@ -938,6 +939,23 @@ p { text-wrap: pretty; }
     border: 1px solid var(--line);
 }
 .brand-badge .brand-mark { width: 26px; height: 43px; }
+.site-footer .social-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.site-footer .social-links a {
+    display: grid;
+    place-items: center;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    color: var(--text-muted);
+    transition: background-color .25s, color .25s, border-color .25s, transform .25s var(--ease);
+}
+.social-links .i-brand { width: 18px; height: 18px; fill: currentColor; stroke: none; }
+.site-footer .social-links a[href]:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--primary-ink);
+    transform: translateY(-2px);
+}
 .footer-title {
     margin-bottom: 16px;
     font-size: .8rem;
