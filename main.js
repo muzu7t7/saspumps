@@ -1,145 +1,77 @@
-document.addEventListener('DOMContentLoaded', () => {
+// Site-wide behaviour. Content is fully visible without JS; this only enhances.
+(() => {
+    // 1. Header border once the page scrolls
+    const header = document.querySelector('[data-header]');
+    const onScroll = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-    // 1. Navigation Scroll Effect
-    const navbar = document.getElementById('navbar');
-    const scrollIndicator = document.querySelector('.scroll-indicator');
+    // 2. Mobile navigation
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('site-nav');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-            if (scrollIndicator) scrollIndicator.classList.add('hidden');
-        } else {
-            navbar.classList.remove('scrolled');
-            if (scrollIndicator) scrollIndicator.classList.remove('hidden');
-        }
-    });
-
-    // 2. Mobile Menu Toggle
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-
-    mobileBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-
-        // Toggle icon between bars and times
-        const icon = mobileBtn.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            const icon = mobileBtn.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        });
-    });
-
-    // Close menu when clicking outside of it
-    document.addEventListener('click', (event) => {
-        const isClickInsideMenu = navLinks.contains(event.target);
-        const isClickOnToggleBtn = mobileBtn.contains(event.target);
-
-        // If the menu is active, and click was outside both the menu and the toggle button
-        if (navLinks.classList.contains('active') && !isClickInsideMenu && !isClickOnToggleBtn) {
-            navLinks.classList.remove('active');
-
-            // Reset the icon to bars
-            const icon = mobileBtn.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-
-            // Reset color logic based on scroll position
-            if (window.scrollY > 50) {
-                icon.style.color = 'var(--primary-blue)';
-            } else {
-                icon.style.color = 'var(--white)';
-            }
-        }
-    });
-
-    // 3. Scroll Reveal Animations (Intersection Observer)
-    // Select all elements that have an animation class
-    const observerElements = document.querySelectorAll('.animate-up, .fade-in-up, .fade-in-left, .fade-in-right');
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15 // Trigger when 15% of element is visible
+    const setMenu = (open) => {
+        toggle.setAttribute('aria-expanded', String(open));
+        nav.classList.toggle('is-open', open);
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Add visible class to trigger CSS transition
-                entry.target.classList.add('visible');
-                // Unobserve after animating once
-                observer.unobserve(entry.target);
-            }
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+        nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); toggle.focus(); }
         });
-    }, observerOptions);
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('is-open') && !nav.contains(e.target) && !toggle.contains(e.target)) setMenu(false);
+        });
+        window.matchMedia('(min-width: 961px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+    }
 
-    observerElements.forEach(el => {
-        observer.observe(el);
+    // 3. "Enquire" links pre-select the product in the contact form
+    const productSelect = document.getElementById('f-product');
+    document.querySelectorAll('[data-product]').forEach((link) => {
+        link.addEventListener('click', () => {
+            if (productSelect) productSelect.value = link.dataset.product;
+        });
     });
 
-    // Trigger hero animations immediately on load
-    setTimeout(() => {
-        document.querySelectorAll('.hero .animate-up').forEach(el => {
-            el.classList.add('visible');
-        });
-    }, 100);
+    // 4. Current year in footer
+    document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
-    // 4. Form Submission (Send to Formspree via AJAX)
+    // 5. Contact form: submit to Formspree without leaving the page
     const form = document.getElementById('contactForm');
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button');
-            const originalText = btn.innerText;
+    if (!form) return;
 
-            btn.innerText = 'Sending...';
-            btn.style.opacity = '0.8';
+    const status = form.querySelector('.form-status');
+    const button = form.querySelector('button[type="submit"]');
 
-            // Gather form data
-            const formData = new FormData(form);
+    const setStatus = (message, type) => {
+        status.textContent = message;
+        status.className = 'form-status' + (type ? ` is-${type}` : '');
+    };
 
-            try {
-                // Send data to Formspree
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        button.disabled = true;
+        setStatus('Sending…');
 
-                if (response.ok) {
-                    btn.innerText = 'Message Sent!';
-                    btn.style.backgroundColor = '#10B981'; // Success Green
-                    form.reset();
-                } else {
-                    btn.innerText = 'Check Details & Try Again';
-                    btn.style.backgroundColor = '#E11D48'; // Error Red
-                }
-            } catch (error) {
-                btn.innerText = 'Network Error';
-                btn.style.backgroundColor = '#E11D48'; // Error Red
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { Accept: 'application/json' }
+            });
+
+            if (response.ok) {
+                form.reset();
+                setStatus("Thanks! We've received your enquiry and will be in touch shortly.", 'success');
+            } else {
+                setStatus('Something went wrong. Please check your details, or email info@saspumps.com.', 'error');
             }
-
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.style.backgroundColor = '';
-                btn.style.opacity = '1';
-            }, 3000);
-        });
-    }
-});
+        } catch {
+            setStatus('Network error. Please try again, or call +971 58 167 0324.', 'error');
+        } finally {
+            button.disabled = false;
+        }
+    });
+})();
