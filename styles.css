@@ -653,6 +653,68 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 }
 
 /* =========================================================
+   Shop online (coming soon)
+========================================================= */
+.shop-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    align-items: center;
+    gap: 32px;
+    padding: clamp(28px, 5vw, 56px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+.shop-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(45% 70% at 85% 50%, var(--water-soft), transparent 70%),
+        radial-gradient(35% 60% at 100% 100%, var(--green-soft), transparent 70%);
+}
+.shop-copy > p:not(.eyebrow) { max-width: 52ch; color: var(--text-muted); }
+.shop-copy .hero-actions { margin: 28px 0 0; }
+.shop-visual {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+}
+.shop-icon {
+    display: grid;
+    place-items: center;
+    width: clamp(110px, 14vw, 150px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+    color: var(--primary);
+}
+.shop-icon .i { width: 44%; height: 44%; stroke-width: 1.5; }
+.soon-badge {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--green-soft);
+    color: var(--green);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+    .shop-card { grid-template-columns: 1fr; }
+    .shop-visual { order: -1; justify-content: start; grid-auto-flow: column; align-items: center; }
+    .shop-icon { width: 72px; }
+}
+
+/* =========================================================
    Why us — dark band
 ========================================================= */
 .why {
