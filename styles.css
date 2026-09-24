@@ -599,21 +599,22 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 
 .bento {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     gap: 18px;
 }
 .product {
-    grid-column: span 2;
+    grid-column: span 3;
     display: flex;
     flex-direction: column;
     padding: 28px;
 }
+.product--side { grid-column: span 4; }
 .product h3 { font-size: 1.4rem; margin: 22px 0 10px; }
 .product p { color: var(--text-muted); font-size: .98rem; }
 
 /* Desktop: photo fills the top of the tall feature card, text sits below */
 .product--feature {
-    grid-column: span 4;
+    grid-column: span 8;
     grid-row: span 2;
     padding: 0;
     overflow: hidden;
