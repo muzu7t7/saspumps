@@ -448,7 +448,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 
 .hero-media {
     position: relative;
-    aspect-ratio: 4 / 4.4;
+    aspect-ratio: 5 / 4.4;
 }
 .hero-media picture,
 .hero-media img {
@@ -1124,6 +1124,21 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
     margin-bottom: 18px;
 }
 .page-hero .lead { margin-bottom: 0; }
+.page-hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: clamp(32px, 5vw, 64px);
+}
+.page-hero-media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+@media (max-width: 900px) { .page-hero-grid { grid-template-columns: 1fr; } }
 
 .breadcrumb ol {
     display: flex;
