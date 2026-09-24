@@ -184,6 +184,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 ========================================================= */
 .btn {
     display: inline-flex;
+    white-space: nowrap;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -305,6 +306,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 }
 .site-nav a {
     display: block;
+    white-space: nowrap;
     padding: 8px 14px;
     border-radius: 999px;
     font-weight: 500;
@@ -332,7 +334,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 .nav-toggle[aria-expanded="true"] .i-open { display: none; }
 .nav-toggle[aria-expanded="true"] .i-close { display: block; }
 
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
     .nav-toggle { display: grid; }
     .header-cta { display: none; }
     .site-nav {

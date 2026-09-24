@@ -24,7 +24,7 @@
         document.addEventListener('click', (e) => {
             if (nav.classList.contains('is-open') && !nav.contains(e.target) && !toggle.contains(e.target)) setMenu(false);
         });
-        window.matchMedia('(min-width: 961px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+        window.matchMedia('(min-width: 1101px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
     }
 
     // 3. "Enquire" links pre-select the product in the contact form
