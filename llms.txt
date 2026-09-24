@@ -1,4 +1,4 @@
-# SAS Pumps (Shaduf Al Sahra Trading)
+# SAS Pumps (Shaduf Al Sahra Trading, also known as Shaduf Pumps)
 
 > UAE supplier (head office in Dubai, serving all seven Emirates) of custom-engineered water pump sets, solar water heaters, agricultural irrigation products, water treatment systems, cooling and heating systems, and air conditioning solutions.
 
@@ -10,4 +10,6 @@
 ## Pages
 
 - [Home](https://saspumps.com/): products, sectors, process, FAQ and enquiry form
+- [Water pumps](https://saspumps.com/water-pumps.html): booster, submersible/borehole, centrifugal and solar-powered pumps; sizing and FAQ
+- [Solar water heaters](https://saspumps.com/solar-water-heaters.html): how they work, sizing, benefits and FAQ
 - [Careers](https://saspumps.com/careers.html): current openings

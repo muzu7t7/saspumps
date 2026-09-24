@@ -836,7 +836,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 ========================================================= */
 /* Areas, FAQ and contact share a background, so don't stack both sections' padding */
 .areas + .faq,
-.faq + .contact { padding-top: 0; }
+.faq:not(.section--alt) + .contact { padding-top: 0; }
 
 .contact-card {
     display: grid;
@@ -992,6 +992,57 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
 .to-top:hover { color: var(--primary); }
 
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
+
+/* =========================================================
+   Product pages
+========================================================= */
+.section--alt { background: var(--surface-2); }
+.page-hero .hero-actions { margin: 32px 0 0; }
+
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+.type-card { display: flex; flex-direction: column; padding: 28px; }
+.type-card h3 { font-size: 1.35rem; margin: 20px 0 8px; }
+.type-card > p { color: var(--text-muted); }
+.uses {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 16px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: .93rem;
+    font-weight: 500;
+    color: var(--heading);
+}
+.uses li { display: flex; align-items: center; gap: 8px; }
+.uses .i { width: 16px; height: 16px; color: var(--green); stroke-width: 2.4; }
+
+.needs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+}
+.need {
+    padding: 24px 0 0;
+    border-top: 2px solid var(--line-strong);
+}
+.need-num {
+    display: block;
+    margin-bottom: 12px;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--green);
+}
+.need h3 { font-size: 1.2rem; margin-bottom: 6px; }
+.need p { color: var(--text-muted); font-size: .96rem; }
+
+@media (max-width: 800px) { .type-grid { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .uses { grid-template-columns: 1fr; } }
 
 /* =========================================================
    Page header (inner pages) & careers

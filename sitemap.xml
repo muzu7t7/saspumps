@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://saspumps.com/</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <image:image>
       <image:loc>https://saspumps.com/assets/img/solar-pumping-station.jpg</image:loc>
     </image:image>
@@ -12,7 +12,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://saspumps.com/water-pumps.html</loc>
+    <lastmod>2026-09-24</lastmod>
+  </url>
+  <url>
+    <loc>https://saspumps.com/solar-water-heaters.html</loc>
+    <lastmod>2026-09-24</lastmod>
+  </url>
+  <url>
     <loc>https://saspumps.com/careers.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-09-24</lastmod>
   </url>
 </urlset>
