@@ -653,7 +653,8 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
     padding: 0 28px 28px;
 }
 /* Icons overlapping a photo: solid colour so they stay visible on any image */
-.product-photo-body .icon-tile {
+.product-photo-body .icon-tile,
+.product--feature .icon-tile {
     position: relative;
     margin-top: -26px;
     border: 4px solid var(--surface);
@@ -662,6 +663,7 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
     color: light-dark(#fff, #08101f);
     box-shadow: 0 6px 16px -6px rgb(11 23 51 / .45);
 }
+.product--feature .icon-tile { margin-top: -58px; } /* body has 32px top padding */
 .product-photo-body .icon-tile--sun { background: var(--sun); }
 .product-photo-body .icon-tile--green { background: var(--green); }
 .product-specs { display: grid; gap: 10px; margin-top: 22px; }
@@ -680,11 +682,13 @@ main > .section:last-child { padding-bottom: clamp(56px, 7vw, 96px); }
     .product { grid-column: span 1; }
     .product--feature { grid-column: 1 / -1; grid-row: auto; grid-template-rows: none; grid-template-columns: 1fr 1fr; }
     .product--feature .product-specs { grid-template-columns: 1fr; }
+    .product--feature .icon-tile { margin-top: 0; } /* photo sits beside the text here */
 }
 @media (max-width: 640px) {
     .bento { grid-template-columns: 1fr; }
     .product--feature { grid-template-columns: 1fr; }
     .product-media { aspect-ratio: 16 / 10; }
+    .product--feature .icon-tile { margin-top: -58px; }
 }
 
 /* =========================================================
